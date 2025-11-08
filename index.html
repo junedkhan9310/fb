@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Customizable Flappy Bird Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top-right UI -->
+  <div id="ui-top-right">
+    <button id="btn-customize">Customize</button>
+    <button id="btn-start">Start Game</button>
+    <button id="btn-reset">Reset to Default</button>
+    <button id="btn-mute">Mute</button>
+  </div>
+
+  <!-- Canvas fills the screen -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Score + messages -->
+  <div id="hud">
+    <div id="score">0</div>
+    <div id="message" class="hidden">Press Space / Click to Start</div>
+    <div id="game-over" class="hidden">
+      <div>Game Over</div>
+      <div id="final-score"></div>
+      <button id="btn-restart">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Customize modal -->
+  <div id="modal" class="hidden" aria-hidden="true">
+    <div id="modal-content">
+      <h3>Customize Assets</h3>
+      <p>Upload your own files to replace default assets. They will be converted to base64 and saved to localStorage so your customizations persist.</p>
+
+      <label>
+        Background image
+        <input type="file" id="file-bg" accept="image/*" />
+      </label>
+
+      <label>
+        Bird image
+        <input type="file" id="file-bird" accept="image/*" />
+      </label>
+
+      <label>
+        Pipe / building image
+        <input type="file" id="file-pipe" accept="image/*" />
+      </label>
+
+      <label>
+        Background music
+        <input type="file" id="file-music" accept="audio/*" />
+      </label>
+
+      <label>
+        Ouch sound
+        <input type="file" id="file-ouch" accept="audio/*" />
+      </label>
+
+      <div id="modal-actions">
+        <button id="btn-close">Close</button>
+        <button id="btn-clear-uploads">Clear Inputs</button>
+      </div>
+
+      <hr />
+      <div id="previews">
+        <h4>Previews</h4>
+        <div class="preview-row">
+          <div><div class="preview-label">Background</div><img id="preview-bg" alt="bg preview" /></div>
+          <div><div class="preview-label">Bird</div><img id="preview-bird" alt="bird preview" /></div>
+          <div><div class="preview-label">Pipe</div><img id="preview-pipe" alt="pipe preview" /></div>
+        </div>
+        <div class="preview-row">
+          <div><div class="preview-label">Music</div><audio id="preview-music" controls></audio></div>
+          <div><div class="preview-label">Ouch</div><audio id="preview-ouch" controls></audio></div>
+        </div>
+      </div>
+
+      <small class="hint">After uploading, your assets are applied immediately and saved locally. Use "Reset to Default" to remove them.</small>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
